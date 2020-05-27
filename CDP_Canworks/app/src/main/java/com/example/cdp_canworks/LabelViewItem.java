@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 public class LabelViewItem {
     private Drawable labelImage;
     private String labelName;
-    private String str2;
     private String storeId;
 
     public void setLabelImage(Drawable icon) {
@@ -15,10 +14,6 @@ public class LabelViewItem {
 
     public void setLabelName(String name) {
         labelName = name;
-    }
-
-    public void setStr2(String str) {
-        str2 = str;
     }
 
     public void setStoreId(String id) {
@@ -31,10 +26,6 @@ public class LabelViewItem {
 
     public String getLabelName() {
         return this.labelName;
-    }
-
-    public String getStr2() {
-        return this.str2;
     }
 
     public String getStoreId() {

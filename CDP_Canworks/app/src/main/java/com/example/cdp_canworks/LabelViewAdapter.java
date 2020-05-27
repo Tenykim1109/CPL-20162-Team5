@@ -34,7 +34,6 @@ public class LabelViewAdapter extends BaseAdapter {
 
         ImageView labelImage = (ImageView)convertView.findViewById(R.id.label_image);
         TextView labelName = (TextView)convertView.findViewById(R.id.label_name);
-        TextView tv1 = (TextView)convertView.findViewById(R.id.tv1);
         TextView storeId = (TextView)convertView.findViewById(R.id.store_id);
 
         LabelViewItem labelViewItem = labelViewItemList.get(position);

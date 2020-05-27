@@ -94,6 +94,7 @@
                 android:layout_marginRight="18dp"
                 android:textSize="15sp"
                 android:text="추가 설정"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,9 +103,11 @@
                 android:layout_marginRight="18dp"
                 android:textSize="15sp"
                 android:text="text1 = asdf \ntext2 = 대구 최고 맛집 KNU Brewing"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -112,6 +115,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginRight="16dp"
                     android:text="발급"/>
+
             </RelativeLayout>
 
             <TextView
@@ -122,6 +126,7 @@
                 android:layout_marginRight="18dp"
                 android:textSize="15sp"
                 android:text="라벨 URL"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,6 +154,7 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="10dp" />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,6 +164,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="10dp"
                     android:text="다운로드"/>
+
             </RelativeLayout>
 
             <Button
@@ -167,6 +174,9 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:text="완료"/>
+
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
