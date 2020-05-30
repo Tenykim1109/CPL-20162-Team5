@@ -36,7 +36,7 @@ public class Modify_Information extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setAction(Intent.ACTION_GET_CONTENT); //휴대폰의 갤러리에서 사진 선택
                 startActivityForResult(intent, 1);
             }
         });
@@ -66,8 +66,7 @@ public class Modify_Information extends AppCompatActivity {
                     InputStream in = getContentResolver().openInputStream(data.getData());
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
-                    // 이미지 표시
-                    imageView.setImageBitmap(img);
+                    imageView.setImageBitmap(img); //이미지뷰에 선택한 이미지 표시
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

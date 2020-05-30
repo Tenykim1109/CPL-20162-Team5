@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cdp_canworks">
+
+    <uses-feature android:name="android.hardware.screen.portrait"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,28 +13,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Modify_Label"></activity>
+        <activity android:name=".so_MainActivity" android:screenOrientation="portrait" />
+        <activity android:name=".so_storelist" />
+        <activity android:name=".so_personaldata" />
+        <activity android:name=".so_customlabel" />
+        <activity android:name=".qr_scanner" />
+        <activity android:name=".Modify_Label" />
         <activity android:name=".Add_Label" />
         <activity android:name=".Label_Info" />
         <activity android:name=".Modify_Information" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Store_Imformation" />
         <activity android:name=".Create_New_Store" />
-        <activity android:name=".Main" >
+        <activity android:name=".Main">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation">
+
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+
+            </intent-filter>
+
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
 </manifest>
