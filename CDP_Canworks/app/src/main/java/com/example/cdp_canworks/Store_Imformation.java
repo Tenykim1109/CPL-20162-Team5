@@ -16,6 +16,7 @@ public class Store_Imformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_imformation);
 
+        //상단 툴바 부분
         Toolbar tb = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -26,7 +27,7 @@ public class Store_Imformation extends AppCompatActivity {
         Button modify = (Button)findViewById(R.id.modify);
         modify.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //매장정보 수정 페이지로 이동
                 Intent modifyIntent = new Intent(Store_Imformation.this, Modify_Information.class);
                 startActivity(modifyIntent);
 //                finish();

@@ -27,10 +27,12 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        //툴바 설정 부분
         Toolbar tb = (Toolbar)findViewById(R.id.toolbar3);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //매장 정보 보여주는 listView 구현부분
         ListViewAdapter adapter;
         ArrayList<ListViewItem> items = new ArrayList<ListViewItem>();
         ArrayList<ListViewItem> copyItems = new ArrayList<ListViewItem>();
@@ -45,6 +47,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter.addItem("카페 봉봉", "003235");
         adapter.addItem("커피왕", "082745");
 
+        //신규매장 생성부분
         ImageButton create = (ImageButton)findViewById(R.id.create);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +59,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     }
 
+    //가게명으로 이름 검색
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -67,6 +71,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         return true;
     }
 
+    //툴바 상단 자물쇠 버튼 클릭시 로그아웃
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
@@ -80,6 +85,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         return false;
     }
 
+    //검색 기능 - 추후 구현예정
     private SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
@@ -92,7 +98,6 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
             return false;
         }
     };
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

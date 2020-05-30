@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CDP_Canworks</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_so_storelist">so_storelist</string>
+
+    <string name="title_activity_so_personaldata">so_personaldata</string>
 </resources>

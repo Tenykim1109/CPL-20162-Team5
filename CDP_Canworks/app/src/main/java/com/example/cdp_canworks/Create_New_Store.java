@@ -23,6 +23,7 @@ public class Create_New_Store extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_new_store);
 
+        //툴바 설정
         Toolbar tb = (Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -35,7 +36,7 @@ public class Create_New_Store extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setAction(Intent.ACTION_GET_CONTENT); //갤러리에서 이미지 선택
                 startActivityForResult(intent, 1);
             }
         });
@@ -52,7 +53,7 @@ public class Create_New_Store extends AppCompatActivity {
                     InputStream in = getContentResolver().openInputStream(data.getData());
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
-                    // 이미지 표시
+                    // 이미지뷰에 불러온 이미지 표시
                     imageView.setImageBitmap(img);
                 } catch (Exception e) {
                     e.printStackTrace();
