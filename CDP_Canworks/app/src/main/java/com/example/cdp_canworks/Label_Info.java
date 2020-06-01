@@ -30,6 +30,7 @@ public class Label_Info extends AppCompatActivity implements AdapterView.OnItemC
         LabelViewAdapter adapter;
         ArrayList<LabelViewItem> items = new ArrayList<LabelViewItem>();
 
+        // 리스트뷰에 라벨 정보 출력
         adapter = new LabelViewAdapter();
         listView = (ListView)findViewById(R.id.listview2);
         listView.setAdapter(adapter);
@@ -41,7 +42,7 @@ public class Label_Info extends AppCompatActivity implements AdapterView.OnItemC
         Button addLabel = (Button)findViewById(R.id.addLabel);
         addLabel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //라벨 추가 페이지로 이동
                 Intent i = new Intent(Label_Info.this, Add_Label.class);
                 startActivity(i);
             }
@@ -49,9 +50,9 @@ public class Label_Info extends AppCompatActivity implements AdapterView.OnItemC
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) { //라벨 이미지 클릭
         Intent intent = new Intent(Label_Info.this, Modify_Label.class);
-        startActivity(intent);
+        startActivity(intent); //라벨 수정 페이지로 이동
     }
 
     @Override

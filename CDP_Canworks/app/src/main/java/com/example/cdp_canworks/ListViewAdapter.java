@@ -55,13 +55,13 @@ public class ListViewAdapter extends BaseAdapter {
 
         storeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //매장 버튼 클릭시 페이지 이동
                 movePage(ctx, Store_Imformation.class);
             }
         });
         labelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //라벨 버튼 클릭시 페이지 이동
                 movePage(ctx, Label_Info.class);
             }
         });
