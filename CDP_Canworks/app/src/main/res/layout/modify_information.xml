@@ -46,6 +46,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/storeNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -64,6 +65,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/storeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -80,6 +82,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/storeId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -96,6 +99,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/storePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -112,6 +116,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/address1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -119,6 +124,7 @@
                 android:padding="10dp" />
 
             <EditText
+                android:id="@+id/address2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
@@ -136,6 +142,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
