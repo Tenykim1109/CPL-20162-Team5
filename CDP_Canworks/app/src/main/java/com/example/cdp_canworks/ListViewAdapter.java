@@ -55,14 +55,14 @@ public class ListViewAdapter extends BaseAdapter {
 
         storeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                movePage(ctx, Store_Imformation.class);
+            public void onClick(View view) { //매장 버튼 클릭시 페이지 이동
+                movePage(ctx, Store_Imformation.class, listViewItem.getStoreNumber());
             }
         });
         labelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                movePage(ctx, Label_Info.class);
+            public void onClick(View view) { //라벨 버튼 클릭시 페이지 이동
+                movePage(ctx, Label_Info.class, listViewItem.getStoreNumber());
             }
         });
 
@@ -91,8 +91,9 @@ public class ListViewAdapter extends BaseAdapter {
         listViewItemList.add(item);
     }
 
-    public void movePage(Context context, Class<?> cls) {
+    public void movePage(Context context, Class<?> cls, String number) {
         Intent i = new Intent(context, cls);
+        i.putExtra("storeNumber", number);
         context.startActivity(i);
     }
 }

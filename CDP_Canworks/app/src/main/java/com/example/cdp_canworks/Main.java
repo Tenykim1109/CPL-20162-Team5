@@ -1,6 +1,7 @@
 package com.example.cdp_canworks;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,8 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        DBHelper helper = new DBHelper(getApplicationContext(), "canworks.db", null, 1);
+
         //툴바 설정 부분
         Toolbar tb = (Toolbar)findViewById(R.id.toolbar3);
         setSupportActionBar(tb);
@@ -43,9 +46,11 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
-        adapter.addItem("캔웍스", "012345");
-        adapter.addItem("카페 봉봉", "003235");
-        adapter.addItem("커피왕", "082745");
+        Cursor cursor = helper.getSimpleStoreInfo();
+
+        while(cursor.moveToNext()) {
+            adapter.addItem(cursor.getString(2), cursor.getString(1));
+        }
 
         //신규매장 생성부분
         ImageButton create = (ImageButton)findViewById(R.id.create);

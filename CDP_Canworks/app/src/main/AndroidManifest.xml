@@ -5,14 +5,22 @@
 
     <uses-feature android:name="android.hardware.screen.portrait"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACTION_OPEN_DOCUMENT"/>
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
 
+    <!--requestLegacyExternalStorage: Android 10 Q 이상에서 외부 저장소 접근하기 위해서 사용해야 함-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true">
         <activity android:name=".so_MainActivity" android:screenOrientation="portrait" />
         <activity android:name=".so_storelist" />
         <activity android:name=".so_personaldata" />
