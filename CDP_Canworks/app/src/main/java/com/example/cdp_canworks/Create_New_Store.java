@@ -13,15 +13,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+
+
+import java.io.InputStream;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import java.io.ByteArrayOutputStream;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
+
+
+
 
 public class Create_New_Store extends AppCompatActivity {
 
@@ -70,6 +84,8 @@ public class Create_New_Store extends AppCompatActivity {
         final EditText input_add1 = (EditText)findViewById(R.id.address1);
         final EditText input_add2 = (EditText)findViewById(R.id.address2);
         final EditText input_phoneNum = (EditText)findViewById(R.id.phoneNumber);
+
+
         Button finish = (Button)findViewById(R.id.finish);
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +98,18 @@ public class Create_New_Store extends AppCompatActivity {
                 address2 = input_add2.getText().toString();
                 phoneNumber = input_phoneNum.getText().toString();
                 emblem = getRealPathFromURI(uri);
+                try {
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    BitMatrix bitMatrix = multiFormatWriter.encode(storeId, BarcodeFormat.QR_CODE,200,200);
+                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byte[] QRcode = stream.toByteArray();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 helper.createStore(storeNum, storeName, storeId, storePassword, address1, address2, phoneNumber, emblem);
 
                 Intent intent = new Intent(Create_New_Store.this, Main.class);
@@ -166,7 +194,6 @@ public class Create_New_Store extends AppCompatActivity {
         return path;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -215,4 +242,19 @@ public class Create_New_Store extends AppCompatActivity {
         return numStr;
     }
 
+
+    /*public Byte[] createQR (String text) {
+        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+        Bitmap bitmap;
+        Byte[] QRcode;
+        try {
+            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            bitmap = barcodeEncoder.createBitmap(bitMatrix);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress()
+    }*/
 }
