@@ -29,13 +29,8 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(Login.this, Main.class);
-                startActivity(intent);
-                finish();
-
-                String input_id = id.getText().toString();
-                String input_pwd = pwd.getText().toString();
+                input_id = id.getText().toString();
+                input_pwd = pwd.getText().toString();
                 String nickname = helper.Login(input_id, input_pwd); //내부 db에 저장된 값 불러오기 - member_info 테이블의 name 항목, 없으면 "\0" 반환
               
                 if (nickname !="\0") {
