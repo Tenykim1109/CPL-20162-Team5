@@ -29,6 +29,19 @@ public class Login extends AppCompatActivity {
                 Intent intent = new Intent(Login.this, Main.class);
                 startActivity(intent);
                 finish();
+
+                String input_id = id.getText().toString();
+                String input_pwd = pwd.getText().toString();
+                String nickname = helper.Login(input_id, input_pwd); //내부 db에 저장된 값 불러오기 - member_info 테이블의 name 항목, 없으면 "\0" 반환
+                if (nickname !="\0") {
+                    Intent intent = new Intent(Login.this, Main.class);
+                    Toast.makeText(getApplicationContext(), nickname+"님 환영합니다!", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

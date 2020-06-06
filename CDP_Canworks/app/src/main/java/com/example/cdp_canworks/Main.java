@@ -43,9 +43,12 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
-        adapter.addItem("캔웍스", "012345");
-        adapter.addItem("카페 봉봉", "003235");
-        adapter.addItem("커피왕", "082745");
+        Cursor cursor = helper.getSimpleStoreInfo(); //
+
+        while(cursor.moveToNext()) {
+            adapter.addItem(cursor.getString(2), cursor.getString(1));
+        }
+
 
         //신규매장 생성부분
         ImageButton create = (ImageButton)findViewById(R.id.create);
