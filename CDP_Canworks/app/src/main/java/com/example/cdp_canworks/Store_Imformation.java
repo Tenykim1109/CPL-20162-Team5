@@ -69,7 +69,7 @@ public class Store_Imformation extends AppCompatActivity {
             @Override
             public void onClick(View view) { //매장정보 수정 페이지로 이동
                 Intent modifyIntent = new Intent(Store_Imformation.this, Modify_Information.class);
-                modifyIntent.putExtra("storeNum", storeNum.getText().toString());
+                modifyIntent.putExtra("storeNumber", storeNum.getText().toString());
                 startActivity(modifyIntent);
 //                finish();
             }

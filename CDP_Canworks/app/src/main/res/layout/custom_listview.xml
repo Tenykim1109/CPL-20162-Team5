@@ -15,6 +15,7 @@
             android:text="매장명: "
             android:textSize="15sp"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:layout_marginLeft="22sp" />
 
         <TextView
@@ -24,6 +25,7 @@
             android:text=""
             android:textSize="15sp"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:layout_marginRight="22sp" />
     </LinearLayout>
 
@@ -38,6 +40,7 @@
             android:text="매장 No.: "
             android:textSize="15sp"
             android:padding="10dp"
+            android:textColor="@color/black"
             android:layout_marginLeft="22sp" />
 
         <TextView
@@ -47,7 +50,8 @@
             android:text=""
             android:textSize="15sp"
             android:padding="10dp"
-            android:layout_marginRight="22sp" />
+            android:textColor="@color/black"
+            android:layout_marginRight="22sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -74,7 +78,9 @@
             android:layout_weight="1"
             android:textSize="15sp"
             android:text="라벨"
-            android:layout_marginLeft="2dp"/>
+            android:layout_marginRight="2dp"/>
+
+
     </LinearLayout>
 
 </LinearLayout>

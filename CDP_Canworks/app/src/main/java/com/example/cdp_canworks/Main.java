@@ -35,6 +35,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+
         //매장 정보 보여주는 listView 구현부분
         ListViewAdapter adapter;
         ArrayList<ListViewItem> items = new ArrayList<ListViewItem>();
@@ -90,7 +91,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         return false;
     }
 
-    //검색 기능 - 추후 구현예정
+    //검색 기능
     private SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
@@ -99,7 +100,8 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         @Override
         public boolean onQueryTextChange(String s) {
-
+            String filterText = s;
+            ((ListViewAdapter)listView.getAdapter()).getFilter().filter(filterText);
             return false;
         }
     };
@@ -115,7 +117,9 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
             time=System.currentTimeMillis();
             Toast.makeText(getApplicationContext(),"뒤로가기 버튼을 한번 더 누르면 종료합니다.",Toast.LENGTH_SHORT).show();
         }else if(System.currentTimeMillis()-time<2000){
-            super.onBackPressed();
+            moveTaskToBack(true);
+            finish();
+            android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
 }

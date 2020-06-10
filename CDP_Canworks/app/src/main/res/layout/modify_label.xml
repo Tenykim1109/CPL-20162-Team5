@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="라벨 수정"
+            android:text="라벨"
             android:textColor="#000000" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -43,6 +43,7 @@
                 android:text="매장 URL"/>
 
             <TextView
+                android:id="@+id/storeURL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -60,6 +61,7 @@
                 android:textSize="15sp"
                 android:text="매장 ID"/>
             <TextView
+                android:id="@+id/storeId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -77,6 +79,7 @@
                 android:textSize="15sp"
                 android:text="라벨 No."/>
             <TextView
+                android:id="@+id/labelNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -85,7 +88,7 @@
                 android:textSize="15sp"
                 android:text="CW01_500"/>
 
-            <TextView
+            <!--TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -93,14 +96,15 @@
                 android:layout_marginRight="18dp"
                 android:textSize="15sp"
                 android:text="추가 설정"/>
-            <TextView
+            <EditText
+                android:id="@+id/options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:textSize="15sp"
-                android:text="text1 = asdf \ntext2 = 대구 최고 맛집 KNU Brewing"/>
+                android:text="text1 = asdf \ntext2 = 대구 최고 맛집 KNU Brewing"/-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -122,6 +126,7 @@
                 android:textSize="15sp"
                 android:text="라벨 URL"/>
             <TextView
+                android:id="@+id/labelURL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -144,6 +149,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/QRcode"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="18dp"
@@ -160,6 +166,7 @@
             </RelativeLayout>
 
             <Button
+                android:id="@+id/finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

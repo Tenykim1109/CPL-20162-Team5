@@ -18,12 +18,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -91,7 +85,7 @@ public class Create_New_Store extends AppCompatActivity {
                 address2 = input_add2.getText().toString();
                 phoneNumber = input_phoneNum.getText().toString();
                 emblem = getRealPathFromURI(uri);
-                try { //QR코드 생성부
+                /*try { //QR코드 생성부
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     BitMatrix bitMatrix = multiFormatWriter.encode(storeId, BarcodeFormat.QR_CODE,200,200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
@@ -104,7 +98,7 @@ public class Create_New_Store extends AppCompatActivity {
                     Log.i("Length of QRcode", QRcodeLength);
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
                 helper.createStore(storeNum, storeName, storeId, storePassword, address1, address2, phoneNumber, emblem);
 
                 Intent intent = new Intent(Create_New_Store.this, Main.class);

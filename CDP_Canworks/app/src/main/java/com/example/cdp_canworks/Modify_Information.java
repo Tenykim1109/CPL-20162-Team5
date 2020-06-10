@@ -33,6 +33,7 @@ public class Modify_Information extends AppCompatActivity {
     String input_add2;
     String input_phoneNum;
     String newImage;
+    String number;
 
     TextView storeNum;
     EditText storeName;
@@ -49,7 +50,7 @@ public class Modify_Information extends AppCompatActivity {
         setContentView(R.layout.modify_information);
 
         Intent intent = getIntent();
-        String number = intent.getExtras().getString("storeNum");
+        number = intent.getExtras().getString("storeNumber");
 
         final DBHelper helper = new DBHelper(getApplicationContext(), "canworks.db", null, 1);
 
@@ -164,6 +165,7 @@ public class Modify_Information extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
                 Intent backIntent = new Intent(Modify_Information.this, Store_Imformation.class);
+                backIntent.putExtra("storeNumber", number);
                 startActivity(backIntent);
                 finish();
                 return true;

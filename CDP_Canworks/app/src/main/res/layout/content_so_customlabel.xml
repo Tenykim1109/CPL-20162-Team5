@@ -31,8 +31,8 @@
             android:text="라벨 커스텀"
             />
 
-        <View
-            android:id="@+id/view"
+        <ImageView
+            android:id="@+id/labelView"
             android:layout_width="match_parent"
             android:layout_height="211dp"
             android:layout_weight="4" />

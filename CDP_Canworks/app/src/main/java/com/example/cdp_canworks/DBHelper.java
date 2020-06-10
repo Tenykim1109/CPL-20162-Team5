@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -59,6 +60,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public String getStoreImage(String id) { //매장 이미지 가져오기
+        SQLiteDatabase db = getReadableDatabase();
+        String emblemPath = "";
+        Cursor cursor = db.rawQuery("SELECT * FROM store_info WHERE storeId='" + id + "';", null);
+        while(cursor.moveToNext()) {
+            emblemPath = cursor.getString(cursor.getColumnIndex("emblem"));
+        }
+        return emblemPath;
+    }
+
     //매장 정보 삭제
     public void deleteInfo(String storeId) {
         SQLiteDatabase db = getWritableDatabase();
@@ -72,5 +83,42 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("UPDATE store_info SET storeName ='"+storeName+"',"+"storePassword='"+storePassword+"',"+
                 "address1='"+address1+"',"+"address2='"+address2+"',"+"phone='"+phone+"',"+"emblem='"+emblemPath+"'WHERE storeNum='"+storeNum+"';");
         db.close();
+    }
+
+    //PersonalData 추가
+    public void updateLabelInfo(String customer, String phone, String mail, int gender, String age){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("INSERT INTO label_info (customer, phone, email, gender, age) " +
+                "VALUES ('"+customer+"','"+phone+"','"+mail+"','"+gender+"','"+age+"');");
+        db.close();
+    }
+
+    //QR코드 등록
+    public void updateQRcode(byte[] QRcode, String storeId) {
+        SQLiteDatabase db = getWritableDatabase();
+        try {
+            String sql = "UPDATE store_info SET QRcode=? WHERE storeId = '"+storeId+"';";
+            SQLiteStatement insertStmt = db.compileStatement(sql);
+            insertStmt.clearBindings();
+            insertStmt.bindBlob(1, QRcode);
+            insertStmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+    }
+
+    //운영자가 labelNum 등록
+    public void setLabelNum(String labelNum, String storeId) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("INSERT INTO label_info (labelNum, storeId) VALUES ('"+labelNum+"','"+storeId+"');");
+        db.close();
+    }
+
+    public Cursor getLabelInfo(String id) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM label_info WHERE storeId = '"+id+"';", null);
+        return cursor;
     }
 }
