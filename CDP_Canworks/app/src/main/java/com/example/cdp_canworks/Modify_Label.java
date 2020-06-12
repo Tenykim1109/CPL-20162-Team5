@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class Modify_Label extends AppCompatActivity {
 
@@ -62,6 +68,35 @@ public class Modify_Label extends AppCompatActivity {
         labelURL.setText("http://canworks.com/shop/"+id);
         QRcode.setImageBitmap(code);
 
+        Button share = (Button)findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String StoragePath =
+                        Environment.getExternalStorageDirectory().getAbsolutePath();
+                String savePath = StoragePath + "/canworks"+"/";
+                String fileName = storeId.getText().toString()+"QR.jpg";
+                BitmapDrawable d = (BitmapDrawable)QRcode.getDrawable();
+                Bitmap bitmap = d.getBitmap();
+
+                try {
+                    File file = new File(savePath, fileName);
+                    FileOutputStream fOut = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+                    fOut.flush();
+                    fOut.close();
+                    file.setReadable(true, false);
+                    final Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(getBaseContext(), BuildConfig.APPLICATION_ID, file));
+                    intent.setType("image/*");
+                    startActivity(Intent.createChooser(intent, "Share image via"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         final Button finish = (Button)findViewById(R.id.finish);
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +107,8 @@ public class Modify_Label extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
     @Override

@@ -86,7 +86,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:background="@drawable/edittextshape"/>
 
             <!--TextView
                 android:layout_width="match_parent"
@@ -117,6 +118,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="18dp"
                     android:layout_marginRight="16dp"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:text="발급"/>
 
             </RelativeLayout>
@@ -169,7 +172,9 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="10dp"
-                    android:text="다운로드"/>
+                    android:text="다운로드"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"/>
 
             </RelativeLayout>
 
@@ -180,7 +185,9 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:text="완료"/>
+                android:text="완료"
+                android:background="@drawable/buttonshape"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 

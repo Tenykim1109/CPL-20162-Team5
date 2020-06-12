@@ -216,6 +216,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:text="이미지 등록"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -230,15 +232,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="18dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:text="수정" />
 
                 <Button
                     android:id="@+id/delete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
                     android:layout_marginRight="18dp"
                     android:layout_weight="1"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:text="삭제" />
             </LinearLayout>
         </LinearLayout>

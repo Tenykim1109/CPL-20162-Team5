@@ -28,14 +28,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //로그인
-    public String Login(String id, String pwd) {
+    public Cursor Login(String id, String pwd) {
         SQLiteDatabase db = getReadableDatabase();
-        String nickname = "\0";
         Cursor cursor = db.rawQuery("SELECT * FROM member_info WHERE id='" + id + "' AND pwd='" + pwd + "';", null); //입력받은 id와 pwd값으로 조회
-        while (cursor.moveToNext()) {
-            nickname = cursor.getString(2);
-        }
-        return nickname;
+        return cursor;
     }
 
     //신규매장생성

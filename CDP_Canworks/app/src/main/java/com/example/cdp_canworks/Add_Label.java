@@ -27,6 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Add_Label extends AppCompatActivity {
 
@@ -75,18 +76,22 @@ public class Add_Label extends AppCompatActivity {
         Button download = (Button)findViewById(R.id.downloadQR);
         download.setOnClickListener(new View.OnClickListener() { //이미지를 갤러리에 저장
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //내부 저장소(=갤러리)에 QR코드 이미지 저장
                 String StoragePath =
                         Environment.getExternalStorageDirectory().getAbsolutePath();
-                String savePath = StoragePath + "/canworks";
+                String savePath = StoragePath + "/canworks"+"/";
+                String fileName = storeId.getText().toString()+"QR.jpg";
                 File f = new File(savePath);
                 if (!f.isDirectory()) f.mkdirs();
                 FileOutputStream out = null;
                 try{
-                    out=new FileOutputStream(StoragePath+"/"+storeId.getText().toString()+"QR.jpg");
+                    out=new FileOutputStream(savePath+fileName);
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+                    out.close();
                     Toast.makeText(getApplicationContext(), "갤러리에 정상적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
                 } catch(FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -101,7 +106,7 @@ public class Add_Label extends AppCompatActivity {
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream); //이미지뷰의 QR코드 추출하여
                     byte[] code = stream.toByteArray(); //바이트 배열로 변환
-                    helper.updateQRcode(code, storeId.getText().toString());
+                    helper.updateQRcode(code, storeId.getText().toString()); //DB에 QR코드 저장
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -113,6 +118,44 @@ public class Add_Label extends AppCompatActivity {
             }
         });
     }
+
+    /*private void saveFile() {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, "image_1024.jpg");
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/*");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            values.put(MediaStore.Images.Media.IS_PENDING, 1);
+        }
+
+        ContentResolver contentResolver = getContentResolver();
+        Uri item = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+        try {
+            ParcelFileDescriptor pdf = contentResolver.openFileDescriptor(item, "w", null);
+
+            if (pdf == null) {
+                Log.d("asdf", "null");
+            } else {
+                String str = "heloo";
+                byte[] strToByte = str.getBytes();
+                FileOutputStream fos = new FileOutputStream(pdf.getFileDescriptor());
+                fos.write(strToByte);
+                fos.close();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    values.clear();
+                    values.put(MediaStore.Images.Media.IS_PENDING, 0);
+                    contentResolver.update(item, values, null, null);
+                }
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -131,11 +174,12 @@ public class Add_Label extends AppCompatActivity {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         byte[] code;
         try { //QR코드 생성부
-            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
+            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200); //text 파라미터 내용으로 200*200 크기의 QR코드 생성
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-            QRcode.setImageBitmap(bitmap);
+            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix); //QR코드를 비트맵으로 변환
+            QRcode.setImageBitmap(bitmap); //이미지뷰에 적용
 
+            //QR코드를 바이트 배열로 변환
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
             code = stream.toByteArray();

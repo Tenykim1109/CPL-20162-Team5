@@ -67,10 +67,10 @@ public class so_MainActivity extends AppCompatActivity {//소비자 페이지 �
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {//qr코드 값이 있는 경우
                 Intent intent = new Intent(so_MainActivity.this, so_customlabel.class);
-                //int storeId = result.getContents();//QR코드에 담긴 storeId 값 저장
-                //intent.putExtra("storeId",storeId);//해당 storeId 넘기기_맞는 라벨디자인 찾기 위해
+                String storeId = result.getContents();//QR코드에 담긴 storeId 값 저장
+                intent.putExtra("storeId",storeId);//해당 storeId 넘기기_맞는 라벨디자인 찾기 위해
                 startActivity(intent);
-                //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
         }
         else{
