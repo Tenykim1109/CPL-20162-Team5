@@ -51,7 +51,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -70,7 +71,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -89,7 +91,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,7 +111,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <EditText
                 android:id="@+id/address2"
@@ -118,7 +122,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
                 android:hint="상세주소"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -137,7 +142,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -169,6 +175,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:text="이미지 등록"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -182,6 +190,8 @@
                 android:layout_marginRight="18dp"
                 android:layout_marginBottom="20dp"
                 android:text="완료"
+                android:background="@drawable/buttonshape"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="15sp" />
 

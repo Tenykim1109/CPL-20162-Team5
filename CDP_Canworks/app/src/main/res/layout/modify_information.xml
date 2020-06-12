@@ -39,10 +39,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="매장No."
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
@@ -53,6 +53,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="002313"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
@@ -62,6 +63,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="매장명"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <EditText
@@ -70,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -79,6 +82,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="매장ID"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
@@ -87,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
+                android:textColor="@color/black"
                 android:padding="10dp" />
 
             <TextView
@@ -96,6 +101,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="PIN번호"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <EditText
@@ -104,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -113,6 +120,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="주소"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <EditText
@@ -121,7 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <EditText
                 android:id="@+id/address2"
@@ -130,7 +139,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:hint="상세주소"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -139,6 +149,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="연락처"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <EditText
@@ -147,7 +158,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:background="@drawable/edittextshape"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,6 +169,7 @@
                 android:layout_marginRight="18dp"
                 android:padding="10dp"
                 android:text="대표 이미지"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <RelativeLayout
@@ -178,6 +191,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:text="이미지 등록"
+                    android:background="@drawable/buttonshape"
+                    android:textColor="@color/white"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -189,6 +204,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="18dp"
+                android:background="@drawable/buttonshape"
+                android:textColor="@color/white"
                 android:text="완료" />
 
         </LinearLayout>

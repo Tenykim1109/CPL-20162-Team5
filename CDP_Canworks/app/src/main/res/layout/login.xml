@@ -26,6 +26,8 @@
             android:textSize="40sp"
             android:layout_gravity="center"
             android:textAlignment="center"
+            android:fontFamily="@font/ssangmundongb"
+            android:textColor="@color/blue"
             android:padding="10dp"/>
 
         <EditText
@@ -35,27 +37,35 @@
             android:hint="ID"
             android:textAlignment="center"
             android:padding="10dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittextshape"/>
         <EditText
             android:id="@+id/pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textAlignment="center"
             android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextshape"/>
 
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/white"
             android:text="로그인"/>
 
         <Button
             android:id="@+id/login2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
             android:text="손님이신가요?"/>
 
     </LinearLayout>

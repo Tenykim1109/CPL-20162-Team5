@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/textView3"
+            android:id="@+id/storeSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -33,9 +33,23 @@
             android:hint="가게명을 입력하세요"
             android:privateImeOptions="defaultInputmode=korean"/>
 
-        <ListView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <ListView
+                android:id="@+id/storelistView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:fastScrollEnabled="true"
+                android:textFilterEnabled="true"
+                />
+        </ScrollView>
+
     </LinearLayout>
 
 

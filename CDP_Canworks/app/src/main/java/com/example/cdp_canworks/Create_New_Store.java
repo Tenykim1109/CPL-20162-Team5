@@ -18,12 +18,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -91,21 +85,7 @@ public class Create_New_Store extends AppCompatActivity {
                 address2 = input_add2.getText().toString();
                 phoneNumber = input_phoneNum.getText().toString();
                 emblem = getRealPathFromURI(uri);
-                try { //QR코드 생성부
-                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                    BitMatrix bitMatrix = multiFormatWriter.encode(storeId, BarcodeFormat.QR_CODE,200,200);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                    byte[] QRcode = stream.toByteArray();
-                    String QRcodeLength = Integer.toString(QRcode.length);
-                    Log.i("Length of QRcode", QRcodeLength);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                helper.createStore(storeNum, storeName, storeId, storePassword, address1, address2, phoneNumber, emblem);
+                helper.createStore(storeNum, storeName, storeId, storePassword, address1, address2, phoneNumber, emblem); //store_info 테이블에 저장
 
                 Intent intent = new Intent(Create_New_Store.this, Main.class);
                 Toast.makeText(getApplicationContext(), "정상적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
